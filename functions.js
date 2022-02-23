@@ -92,11 +92,11 @@ Output:
     etc . . .
  }
 */
-
+// filter for ford owners, then run getTotalOfEachGender
 export function getGenderBreakdownOfFordOwners(customers) {
-    return true;
+    const fordOwners = customers.filter(item => item.car_make === 'Ford');
+    return getTotalOfEachGender(fordOwners);
 }
-
 
 /* 
 Output: 
