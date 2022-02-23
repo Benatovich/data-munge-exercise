@@ -115,30 +115,30 @@ Output:
 }
 */
 // hashmap within hashmap?
-function getBrand(customer) {
-    return customer.car_make;
-}
+// function getBrand(customer) {
+//     return customer.car_make;
+// }
 
-export function getGenderBreakdownOfEachCar(customers) {
-    const brandGenderBreakdownArrayMap = customers.reduce((acc, curr) => {
-        const brand = getBrand(curr);
+// export function getGenderBreakdownOfEachCar(customers) {
+//     const brandGenderBreakdownArrayMap = customers.reduce((acc, curr) => {
+//         const brand = getBrand(curr);
 
-        if(acc[brand]) {
-            acc[brand].push(curr.gender);
-        } else {
-            acc[brand] = [curr.gender];
-        }
+//         if(acc[brand]) {
+//             acc[brand].push(curr.gender);
+//         } else {
+//             acc[brand] = [curr.gender];
+//         }
 
-        return acc;
-    }, {});
+//         return acc;
+//     }, {});
 
-    for(let key of Object.keys(brandGenderBreakdownArrayMap)) {
-        const genderArray = brandGenderBreakdownArrayMap[key];
-        const getGenderCount = getTotalOfEachGender(genderArray);
+//     for(let key of Object.keys(brandGenderBreakdownArrayMap)) {
+//         const genderArray = brandGenderBreakdownArrayMap[key];
+//         const getGenderCount = getTotalOfEachGender(genderArray);
         
-    }
-    return brandGenderBreakdownArrayMap;
-}
+//     }
+//     return brandGenderBreakdownArrayMap;
+// }
 
 // // if you can get an array of non-duplicate car brands . . .
 // const breakdownsByBrand = carBrands.reduce((acc, brand) => {

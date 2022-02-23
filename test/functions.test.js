@@ -140,7 +140,7 @@ test('getGenderBreakdownOfFordOwners', (expect) => {
 
 
 console.log(getGenderBreakdownOfEachCar(customers));
-test('getGenderBreakdownOfEachCar', (expect) => {
+skip('getGenderBreakdownOfEachCar', (expect) => {
     const expected = true;
 
     const actual = greetUsers();
