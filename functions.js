@@ -25,12 +25,23 @@ export function greetUsersOverAge60(customers) {
 
 /* 
 Output: 
-4532
+2125 is the total age
 */
 
 export function addAllAges(customers) {
-    return true;
+    let sum = 0;
+
+    for(let person of customers) {
+        sum += person.age;
+    }
+    return sum;
 }
+
+// export function addAllAges(customers) {
+//     const sum = customers.reduce((acc, c) => acc + c.age, 0);
+
+//     return sum;
+// }
 
 /* 
 Output: 
