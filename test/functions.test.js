@@ -1,10 +1,10 @@
 // IMPORT MODULES under test here:
 import { 
-    greetUsers,
+    greetUsers, greetUsersOverAge60,
 } from '../functions.js';
 import customers from './data.js';
 
-console.log(greetUsers(customers));
+// console.log(greetUsers(customers));
 
 const { test, skip } = QUnit;
 
@@ -64,12 +64,29 @@ test('should return an array of "Hello [first name] [last name]', (expect) => {
 });
 
 
-skip('greetUsersOverAge60', (expect) => {
-    const expected = true;
+test('should filter for people 60+ and then run like greetUsers', (expect) => {
+    const expected = 	
+    [
+        'Hello Suzi Summerson!',
+        'Hello Boot Penton!',
+        'Hello Cacilia Caramuscia!',
+        'Hello Cristal Oakman!',
+        'Hello Kenny Kepe!',
+        'Hello Dimitri Ochiltree!',
+        "Hello Ilaire O'Codihie!",
+        'Hello Anatol Gulley!',
+        'Hello Salomone Merkle!',
+        'Hello Alta Sulter!',
+        'Hello Alexandros Cornell!',
+        'Hello Thorn McMeekin!',
+        'Hello Esmaria Moukes!',
+        'Hello Munroe Walthall!',
+        'Hello Tannie Sedman!'
+    ];
 
-    const actual = greetUsers();
+    const actual = greetUsersOverAge60(customers);
 
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
 
 skip('addAllAges', (expect) => {

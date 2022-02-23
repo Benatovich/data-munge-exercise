@@ -15,7 +15,11 @@ Output:
 */
 
 export function greetUsersOverAge60(customers) {
-    return true;
+    return customers
+        .filter(item => item.age >= 60)
+        .map(item => {
+            return `Hello ${item.first_name} ${item.last_name}!`;
+        });
 }
 
 
