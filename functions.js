@@ -4,7 +4,9 @@ Output:
 */
 
 export function greetUsers(customers) {
-    return true;
+    return customers.map(item => {
+        return `Hello ${item.first_name} ${item.last_name}!`;
+    });
 }
 
 /* 
@@ -13,26 +15,49 @@ Output:
 */
 
 export function greetUsersOverAge60(customers) {
-    return true;
+    return customers
+        .filter(item => item.age >= 60)
+        .map(item => {
+            return `Hello ${item.first_name} ${item.last_name}!`;
+        });
 }
 
 
 /* 
 Output: 
-4532
+2125 is the total age
 */
 
 export function addAllAges(customers) {
-    return true;
+    let sum = 0;
+
+    for(let person of customers) {
+        sum += person.age;
+    }
+    return sum;
 }
+
+// export function addAllAges(customers) {
+//     const sum = customers.reduce((acc, c) => acc + c.age, 0);
+
+//     return sum;
+// }
 
 /* 
 Output: 
 4.5
 */
 
+// do addAllAges, but with coolFactor, then divide by the number of customers
 export function getAverageCoolFactor(customers) {
-    return true;
+    let sum = 0;
+    // let average = sum / customers.length;
+
+    for(let customer of customers) {
+        sum += customer.cool_factor;
+    }
+    return sum / customers.length;
+
 }
 
 /* 
@@ -44,9 +69,18 @@ Output:
     etc . . .
 }
 */
-
+// "if you ever want to find the count of something in javascript, use hashmap every single time"
 export function getTotalOfEachGender(customers) {
-    return true;
+    const countingHashMap = {};
+
+    for(let customer of customers) {
+        if(countingHashMap[customer.gender]) {
+            countingHashMap[customer.gender]++;
+        } else {
+            countingHashMap[customer.gender] = 1;
+        }
+    }
+    return countingHashMap;
 }
 
 /* 
@@ -58,11 +92,11 @@ Output:
     etc . . .
  }
 */
-
+// filter for ford owners, then run getTotalOfEachGender
 export function getGenderBreakdownOfFordOwners(customers) {
-    return true;
+    const fordOwners = customers.filter(item => item.car_make === 'Ford');
+    return getTotalOfEachGender(fordOwners);
 }
-
 
 /* 
 Output: 
@@ -80,10 +114,37 @@ Output:
     etc . . .
 }
 */
+// hashmap within hashmap?
+// function getBrand(customer) {
+//     return customer.car_make;
+// }
 
-export function getGenderBreakdownOfEachCar(customers) {
-    return true;
-}
+// export function getGenderBreakdownOfEachCar(customers) {
+//     const brandGenderBreakdownArrayMap = customers.reduce((acc, curr) => {
+//         const brand = getBrand(curr);
+
+//         if(acc[brand]) {
+//             acc[brand].push(curr.gender);
+//         } else {
+//             acc[brand] = [curr.gender];
+//         }
+
+//         return acc;
+//     }, {});
+
+//     for(let key of Object.keys(brandGenderBreakdownArrayMap)) {
+//         const genderArray = brandGenderBreakdownArrayMap[key];
+//         const getGenderCount = getTotalOfEachGender(genderArray);
+        
+//     }
+//     return brandGenderBreakdownArrayMap;
+// }
+
+// // if you can get an array of non-duplicate car brands . . .
+// const breakdownsByBrand = carBrands.reduce((acc, brand) => {
+//     const genderBreakdown =  // do whatever you did to get the ford gender breakdown working
+//     acc[brand] = genderBreakdown
+// }, {})
 
 /* 
 Output: 
