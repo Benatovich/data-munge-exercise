@@ -48,8 +48,16 @@ Output:
 4.5
 */
 
+// do addAllAges, but with coolFactor, then divide by the number of customers
 export function getAverageCoolFactor(customers) {
-    return true;
+    let sum = 0;
+    // let average = sum / customers.length;
+
+    for(let customer of customers) {
+        sum += customer.cool_factor;
+    }
+    return sum / customers.length;
+
 }
 
 /* 
