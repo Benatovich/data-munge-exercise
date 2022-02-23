@@ -69,9 +69,18 @@ Output:
     etc . . .
 }
 */
-
+// "if you ever want to find the count of something in javascript, use hashmap every single time"
 export function getTotalOfEachGender(customers) {
-    return true;
+    const countingHashMap = {};
+
+    for(let customer of customers) {
+        if(countingHashMap[customer.gender]) {
+            countingHashMap[customer.gender]++;
+        } else {
+            countingHashMap[customer.gender] = 1;
+        }
+    }
+    return countingHashMap;
 }
 
 /* 
