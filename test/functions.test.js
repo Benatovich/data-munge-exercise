@@ -11,7 +11,7 @@ import {
 import customers from './data.js';
 
 // console.log(getAverageCoolFactor(customers));
-console.log(customers.length);
+// console.log(customers.length);
 
 const { test, skip } = QUnit;
 
@@ -138,7 +138,9 @@ test('getGenderBreakdownOfFordOwners', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-skip('getGenderBreakdownOfEachCar', (expect) => {
+
+console.log(getGenderBreakdownOfEachCar(customers));
+test('getGenderBreakdownOfEachCar', (expect) => {
     const expected = true;
 
     const actual = greetUsers();

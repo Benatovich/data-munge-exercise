@@ -114,10 +114,37 @@ Output:
     etc . . .
 }
 */
+// hashmap within hashmap?
+function getBrand(customer) {
+    return customer.car_make;
+}
 
 export function getGenderBreakdownOfEachCar(customers) {
-    return true;
+    const brandGenderBreakdownArrayMap = customers.reduce((acc, curr) => {
+        const brand = getBrand(curr);
+
+        if(acc[brand]) {
+            acc[brand].push(curr.gender);
+        } else {
+            acc[brand] = [curr.gender];
+        }
+
+        return acc;
+    }, {});
+
+    for(let key of Object.keys(brandGenderBreakdownArrayMap)) {
+        const genderArray = brandGenderBreakdownArrayMap[key];
+        const getGenderCount = getTotalOfEachGender(genderArray);
+        
+    }
+    return brandGenderBreakdownArrayMap;
 }
+
+// // if you can get an array of non-duplicate car brands . . .
+// const breakdownsByBrand = carBrands.reduce((acc, brand) => {
+//     const genderBreakdown =  // do whatever you did to get the ford gender breakdown working
+//     acc[brand] = genderBreakdown
+// }, {})
 
 /* 
 Output: 
