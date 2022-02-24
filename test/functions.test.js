@@ -5,7 +5,6 @@ import {
     greetUsersOverAge60,
     getAverageCoolFactor,
     getTotalOfEachGender,
-    getGenderBreakdownOfEachCar,
     getGenderBreakdownOfFordOwners
 } from '../functions.js';
 import customers from './data.js';
@@ -139,7 +138,6 @@ test('getGenderBreakdownOfFordOwners', (expect) => {
 });
 
 
-console.log(getGenderBreakdownOfEachCar(customers));
 skip('getGenderBreakdownOfEachCar', (expect) => {
     const expected = true;
 
